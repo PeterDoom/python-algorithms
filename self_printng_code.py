@@ -1,5 +1,3 @@
-import os
-import sys
 
 with open("self_printng_code.py", "r") as file:
     print(file.read())
