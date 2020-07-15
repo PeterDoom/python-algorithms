@@ -1,8 +1,9 @@
 from PIL import Image
 from numpy import complex, array
 import colorsys
-import time
+# import time
 import argparse
+import progressbar
 
 WIDTH = 4096
 
@@ -24,23 +25,25 @@ def mandelbrot(x, y):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Argument for Mandelbrot Set script')
-    parser.add_argument("-res", "--resolution", required=True, nargs='+',
+    parser.add_argument("-res", "--resolution", required=True, nargs=1,
                         help="Resolution for final image")
 
-    start_time = time.time()
+    args = parser.parse_args()
+    WIDTH = int(args.resolution[0])
+
+    # start_time = time.time()
 
     img = Image.new('RGB', (WIDTH, int(WIDTH / 2)))
     pixels = img.load()
 
-    for x in range(img.size[0]):
+    with progressbar.ProgressBar(max_value=progressbar.UnknownLength) as bar:
+        for x in range(img.size[0]):
 
-        # displaying the progress as percentage
-        print("%.2f %%" % (x / WIDTH * 100.0))
-        for y in range(img.size[1]):
-            pixels[x, y] = mandelbrot((x - (0.75 * WIDTH)) / (WIDTH / 4),
-                                      (y - (WIDTH / 4)) / (WIDTH / 4))
+            # print("%.2f %%" % (x / WIDTH * 100.0))
+            for y in range(img.size[1]):
+                pixels[x, y] = mandelbrot((x - (0.75 * WIDTH)) / (WIDTH / 4),
+                                          (y - (WIDTH / 4)) / (WIDTH / 4))
+            bar.update(+1)
 
-        # to display the created fractal after
-    # completing the given number of iterations
-    print("--- %s seconds ---" % (time.time() - start_time))
+    # print("--- %s seconds ---" % (time.time() - start_time))
     img.show()
