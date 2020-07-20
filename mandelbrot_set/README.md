@@ -4,5 +4,5 @@ The Mandelbrot set is the set of complex numbers for which the function does not
 
 ## How to run the script:
 ``
-python mandelbrot_set_v1.py -res 4096 
+python mandelbrot_set_v1.py -res 1024 
 ``
