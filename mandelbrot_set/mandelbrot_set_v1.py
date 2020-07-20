@@ -5,7 +5,7 @@ import colorsys
 import argparse
 import progressbar
 
-WIDTH = 4096
+WIDTH = 1024
 
 
 def rgb_conv(i):
