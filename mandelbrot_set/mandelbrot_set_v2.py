@@ -7,4 +7,12 @@ import progressbar
 WIDTH = 500
 img = Image.new('RGB', (WIDTH, int(WIDTH / 2)))
 
+
+def calculate_set(x, y):
+    pass
+
+
+def create_pxl(i):
+    pass
+
 # TODO FOR EVERY ROW OF THE IMAGE CALCULATE THE MANDLEBROT FORMULA, MAKE IT CONCURRENT/MULTITHREADED
