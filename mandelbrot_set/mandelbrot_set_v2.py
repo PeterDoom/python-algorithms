@@ -5,6 +5,8 @@ import argparse
 import progressbar
 
 WIDTH = 500
+IMAGE_ARRAY = []
+
 img = Image.new('RGB', (WIDTH, int(WIDTH / 2)))
 
 
