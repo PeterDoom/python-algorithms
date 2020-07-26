@@ -1,8 +1,8 @@
 import threading
 from PIL import Image
 
-w = 4000
-h = 4000
+w = 1024
+h = 1024
 image = Image.new("RGB", (w, h))
 wh = w * h
 maxIt = 500  # max number of iterations allowed
@@ -18,6 +18,7 @@ numThr = 100
 
 class ManFrThread(threading.Thread):
     def __init__(self, k):
+        # k is number of thread
         self.k = k
         threading.Thread.__init__(self)
 
