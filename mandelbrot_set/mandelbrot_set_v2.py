@@ -1,3 +1,4 @@
+import argparse
 import threading
 from PIL import Image
 
@@ -48,6 +49,14 @@ class ManFrThread(threading.Thread):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Argument for Mandelbrot Set script')
+    parser.add_argument("-res", "--resolution", required=True, nargs=1,
+                    help="Resolution for final image")
+
+    args = parser.parse_args()
+    # w = int(args.resolution[0])
+    # h = int(args.resolution[0])
+
     tArr = []
     for k in range(numThr):  # create all threads
         tArr.append(ManFrThread(k))
