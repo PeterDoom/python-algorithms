@@ -65,3 +65,5 @@ if __name__ == "__main__":
     for k in range(numThr):  # wait until all threads finished
         tArr[k].join()
     image.save("MandelbrotFractal.png", "PNG")
+    
+    # TODO Implement better multithreading logic
